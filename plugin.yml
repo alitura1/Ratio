@@ -1,0 +1,10 @@
+name: Ratio
+main: xAliTura01\Ratio\Main
+api: 3.0.1
+author: xAliTura01
+version: 0.1
+
+permissions:
+  ratio.vip:
+    description: "Allow the player to Ratio vip feature"
+    default: op
