@@ -176,7 +176,7 @@ class Main extends PluginBase implements Listener
 			break;
 		}
 		switch ($ratio3) {
-			case 1
+			case 1:
 				$world->dropItem(new Vector3($x,$y,$z), Item::get(1));
 				$this->playMusic($player);
 				$player->sendMessage(LanguageManager::translateMessage($player, "player-message"));
