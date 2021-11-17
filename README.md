@@ -3,7 +3,7 @@
 </p>
 
 <h1 align="center">Ratio</h1>
-<p align="center">Ratio plugin is a luck plugin. The more lucky you are, the more you win.</p>
+<p align="center">Ratio plugin is a luck plugin. While digging cobblestone, you may aleatory earn diamonds, gold, iron or ghost tears you don't want!.</p>
 
 <br>
 <p align="center">
@@ -21,7 +21,7 @@
       </p>    
 
 ## Features
-- When you break a block (Cobblestone), it gives/puts you something random.
+- When you break a block (Cobblestone), you may receive random diamonds, gold, iron or unwanted ghost tears!
 
 ## Support
 Since it's new, it's missing a lot, if you want to help, don't hesitate!
