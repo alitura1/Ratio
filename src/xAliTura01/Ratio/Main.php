@@ -4,11 +4,9 @@ namespace xAliTura01\Ratio;
 
 use pocketmine\Player;
 use pocketmine\item\Item;
-use pocketmine\block\Block;
 use pocketmine\math\Vector3;
 use pocketmine\event\Listener;
 use pocketmine\plugin\PluginBase;
-use pocketmine\block\BlockFactory;
 use pocketmine\event\block\BlockBreakEvent;
 
 use ReflectionClass;
@@ -17,6 +15,8 @@ use pocketmine\network\mcpe\protocol\PlaySoundPacket;
 
 use xAliTura01\Ratio\LanguageProcessing\ConfigManager;
 use xAliTura01\Ratio\LanguageProcessing\LanguageManager;
+
+use __64FF00\PureChat\PurePerms;
 
 class Main extends PluginBase implements Listener
 {
@@ -71,7 +71,6 @@ class Main extends PluginBase implements Listener
 	public function blockBreak(BlockBreakEvent $event)
 	{
 		$player = $event->getPlayer();
-		$player->sendMessage(LanguageManager::translateMessage($player, "player-message"));
 		$name = $player->getName();
 		$world = $player->getLevel()->getFolderName();
 		if ($world = $name) {
@@ -110,48 +109,33 @@ class Main extends PluginBase implements Listener
 		$z = $event->getBlock()->getZ();
 		switch ($ratio1) {
 			case 1:
-				$world->setBlock(new Vector3($x,$y,$z), Block::get(16));
-				$this->playMusic($player);
-			break;
-			case 2:
 				$world->dropItem(new Vector3($x,$y,$z), Item::get(266));
 				$this->playMusic($player);
+				$player->sendMessage(LanguageManager::translateMessage($player, "vip-message"));
 			break;
-			case 3:
-				$world->setBlock(new Vector3($x,$y,$z), Block::get(14));
-				$this->playMusic($player);
-			break;
-			case 4:
+			case 2:
 				$world->dropItem(new Vector3($x,$y,$z), Item::get(370));
 				$this->playMusic($player);
+				$player->sendMessage(LanguageManager::translateMessage($player, "vip-message"));
 			break;
 		}
 		switch ($ratio2) {
 			case 1:
-				$world->setBlock(new Vector3($x,$y,$z), Block::get(15));
-				$this->playMusic($player);
-			break;
-			case 2:
 				$world->dropItem(new Vector3($x,$y,$z), Item::get(266));
 				$this->playMusic($player);
+				$player->sendMessage(LanguageManager::translateMessage($player, "vip-message"));
 			break;
-			case 3:
-				$world->setBlock(new Vector3($x,$y,$z), Block::get(129));
-				$this->playMusic($player);
-			break;
-			case 4:
+			case 2:
 				$world->dropItem(new Vector3($x,$y,$z), Item::get(265));
 				$this->playMusic($player);
+				$player->sendMessage(LanguageManager::translateMessage($player, "vip-message"));
 			break;
 		}
 		switch($ratio3){
 			case 1:
-				$world->setBlock(new Vector3($x,$y,$z), Block::get(56));
-				$this->playMusic($player);
-			break;
-			case 2:
 				$world->dropItem(new Vector3($x,$y,$z), Item::get(264));
 				$this->playMusic($player);
+		     	$player->sendMessage(LanguageManager::translateMessage($player, "vip-message"));	
 			break;
 		}
 	}
@@ -169,48 +153,33 @@ class Main extends PluginBase implements Listener
 		$z = $event->getBlock()->getZ();
 		switch ($ratio1) {
 			case 1:
-				$world->setBlock(new Vector3($x,$y,$z), Block::get(370));
-				$this->playMusic($player);
-			break;
-			case 2:
 				$world->dropItem(new Vector3($x,$y,$z), Item::get(265));
 				$this->playMusic($player);
+				$player->sendMessage(LanguageManager::translateMessage($player, "player-message"));
 			break;
-			case 3:
-				$world->setBlock(new Vector3($x,$y,$z), Block::get(266));
-				$this->playMusic($player);
-			break;
-			case 4:
+			case 2:
 				$world->dropItem(new Vector3($x,$y,$z), Item::get(264));
 				$this->playMusic($player);
+				$player->sendMessage(LanguageManager::translateMessage($player, "player-message"));
 			break;
 		}
 		switch ($ratio2) {
 			case 1:
-				$world->setBlock(new Vector3($x,$y,$z), Block::get(370));
-				$this->playMusic($player);
-			break;
-			case 2:
 				$world->dropItem(new Vector3($x,$y,$z), Item::get(265));
 				$this->playMusic($player);
+				$player->sendMessage(LanguageManager::translateMessage($player, "player-message"));
 			break;
-			case 3:
-				$world->setBlock(new Vector3($x,$y,$z), Block::get(266));
-				$this->playMusic($player);
-			break;
-			case 4:
+			case 2
 				$world->dropItem(new Vector3($x,$y,$z), Item::get(266));
 				$this->playMusic($player);
+				$player->sendMessage(LanguageManager::translateMessage($player, "player-message"));
 			break;
 		}
 		switch ($ratio3) {
-			case 1:
-				$world->setBlock(new Vector3($x,$y,$z), Block::get(4));
-				$this->playMusic($player);
-			break;
-			case 2:
+			case 1
 				$world->dropItem(new Vector3($x,$y,$z), Item::get(1));
 				$this->playMusic($player);
+				$player->sendMessage(LanguageManager::translateMessage($player, "player-message"));
 			break;
 		}
 	}
