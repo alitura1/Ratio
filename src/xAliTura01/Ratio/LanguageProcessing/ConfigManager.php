@@ -6,7 +6,7 @@ use xAliTura01\Ratio\Main;
 
 class ConfigManager {
 
-	public const CONFIG_VERSION = "1.0.0";
+	public const CONFIG_VERSION = "0.2";
 
 	public function __construct() {
 		$this->initConfig($this->checkConfigUpdates());
