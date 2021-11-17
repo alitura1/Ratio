@@ -27,6 +27,9 @@ class ConfigManager {
 		}
 		if (!is_file(ConfigManager::getDataFolder() . "languages/vi_VN.yml") || $forceUpdate) {
 			Main::getInstance()->saveResource("languages/vi_VN.yml", $forceUpdate);
+		}
+		if (!is_file(ConfigManager::getDataFolder() . "languages/az_AZ.yml") || $forceUpdate) {
+			Main::getInstance()->saveResource("languages/az_AZ.yml", $forceUpdate);
 	}
 		if (!is_file(ConfigManager::getDataFolder() . "/config.yml")) {
 			Main::getInstance()->saveResource("/config.yml");
