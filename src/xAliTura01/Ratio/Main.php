@@ -169,7 +169,7 @@ class Main extends PluginBase implements Listener
 				$this->playMusic($player);
 				$player->sendMessage(LanguageManager::translateMessage($player, "player-message"));
 			break;
-			case 2
+			case 2:
 				$world->dropItem(new Vector3($x,$y,$z), Item::get(266));
 				$this->playMusic($player);
 				$player->sendMessage(LanguageManager::translateMessage($player, "player-message"));
