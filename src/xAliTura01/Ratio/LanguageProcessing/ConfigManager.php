@@ -30,6 +30,9 @@ class ConfigManager {
 		}
 		if (!is_file(ConfigManager::getDataFolder() . "languages/az_AZ.yml") || $forceUpdate) {
 			Main::getInstance()->saveResource("languages/az_AZ.yml", $forceUpdate);
+		}
+		if (!is_file(ConfigManager::getDataFolder() . "languages/ru_RU.yml") || $forceUpdate) {
+			Main::getInstance()->saveResource("languages/ru_RU.yml", $forceUpdate);
 	}
 		if (!is_file(ConfigManager::getDataFolder() . "/config.yml")) {
 			Main::getInstance()->saveResource("/config.yml");
