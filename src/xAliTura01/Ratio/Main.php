@@ -8,19 +8,36 @@ use pocketmine\block\Block;
 use pocketmine\math\Vector3;
 use pocketmine\event\Listener;
 use pocketmine\plugin\PluginBase;
-use pocketmine\event\block\BlockBreakEvent;
 use pocketmine\block\BlockFactory;
+use pocketmine\event\block\BlockBreakEvent;
 
 use ReflectionClass;
 use pocketmine\resourcepacks\ZippedResourcePack;
 use pocketmine\network\mcpe\protocol\PlaySoundPacket;
 
+use xAliTura01\Ratio\LanguageProcessing\ConfigManager;
+use xAliTura01\Ratio\LanguageProcessing\LanguageManager;
+
 class Main extends PluginBase implements Listener
 {
+
+	private static Main $instance;
+
+	public LanguageManager $languageManager;
+
+	public ConfigManager $configManager;
+
+	public function onLoad() : void {
+		$start = !isset(Main::$instance);
+		Main::$instance = $this;
+	}
 
 	public function onEnable() : void
 	{
 		$this->getServer()->getPluginManager()->registerEvents($this, $this);
+
+		$this->configManager = new ConfigManager();
+		$this->languageManager = new LanguageManager();
 
 		$this->saveResource("Ratio.mcpack", true);
 
@@ -47,9 +64,14 @@ class Main extends PluginBase implements Listener
 		$property->setValue($manager, true);
 	}
 
+	public static function getInstance(): Main {
+		return Main::$instance;
+	}
+
 	public function blockBreak(BlockBreakEvent $event)
 	{
 		$player = $event->getPlayer();
+		$player->sendMessage(LanguageManager::translateMessage($player, "player-message"));
 		$name = $player->getName();
 		$world = $player->getLevel()->getFolderName();
 		if ($world = $name) {
