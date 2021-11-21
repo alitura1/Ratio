@@ -33,7 +33,7 @@ class Main extends PluginBase implements Listener
 		Main::$instance = $this;
 	}
 
-	public function onEnable() : void
+	protected function onEnable() : void
 	{
 		$this->getServer()->getPluginManager()->registerEvents($this, $this);
 
@@ -65,7 +65,8 @@ class Main extends PluginBase implements Listener
 		$property->setValue($manager, true);
 	}
 
-	public static function getInstance(): Main {
+	public static function getInstance() : Main
+	{
 		return Main::$instance;
 	}
 
@@ -78,7 +79,7 @@ class Main extends PluginBase implements Listener
 			if ($event->getBlock()->getId() == 4) {
 				if ($player->hasPermission("ratio.vip")) {
 					$this->ratioVip($event);
-				}else{
+				} else {
 					$this->ratioPlayer($event);
 				}
 			}
@@ -133,11 +134,11 @@ class Main extends PluginBase implements Listener
 				$player->sendMessage(LanguageManager::translateMessage($player, "vip-message"));
 			break;
 		}
-		switch($ratio3){
+		switch($ratio3) {
 			case 1:
 				$world->dropItem(new Vector3($x,$y,$z), Item::get(264));
 				$this->playMusic($player);
-		     	$player->sendMessage(LanguageManager::translateMessage($player, "vip-message"));	
+				$player->sendMessage(LanguageManager::translateMessage($player, "vip-message"));
 			break;
 		}
 	}
