@@ -23,13 +23,14 @@
 ## Features
 - When you break a block (Cobblestone), you may receive random diamonds, gold, iron or unwanted ghost tears!
 - Multi-Language System
+- Multi-Sound System
 
 ## Support
 Since it's new, it's missing a lot, if you want to help, don't hesitate!
 
 You can:
 - [open an issue](https://github.com/xAliTura01/Ratio/issues) (bug fix and feature requests etc.)
-- [create a pull request](https://github.com/xAliTura01/Ratio/pulls) (code contributions like fixed bugs, added features and new/update language)
+- [create a pull request](https://github.com/xAliTura01/Ratio/pulls) (code contributions like fixed bugs, added features, new/update languages and new sounds)
 
 ##### *NOTE:* In the ratio plugin when you break the cobblestone, something empty may come out by chance, don't worry, this is a luck plugin, and if you see something missing, please don't forget to report it.
 

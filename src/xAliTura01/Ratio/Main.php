@@ -88,7 +88,8 @@ class Main extends PluginBase implements Listener
 	public function playMusic(Player $player)
 	{
 		$packet = new PlaySoundPacket();
-		$packet->soundName = "Ratio";
+		$soundName = $this->getConfig()->get("sound");
+		$packet->soundName = $soundName;
 		$packet->x = $player->getX();
 		$packet->y = $player->getY();
 		$packet->z = $player->getZ();
