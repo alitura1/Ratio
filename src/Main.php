@@ -33,7 +33,7 @@ class Main extends PluginBase implements Listener
 		Main::$instance = $this;
 	}
 
-	protected function onEnable() : void
+	public function onEnable() : void
 	{
 		$this->getServer()->getPluginManager()->registerEvents($this, $this);
 
@@ -75,7 +75,7 @@ class Main extends PluginBase implements Listener
 		$player = $event->getPlayer();
 		$name = $player->getName();
 		$world = $player->getLevel()->getFolderName();
-		if ($world = $name) {
+		if ($world === $name) {
 			if ($event->getBlock()->getId() == 4) {
 				if ($player->hasPermission("ratio.vip")) {
 					$this->ratioVip($event);
@@ -102,14 +102,15 @@ class Main extends PluginBase implements Listener
 	public function ratioVip($event)
 	{
 		$player = $event->getPlayer();
+		$block = $event->getBlock();
 		$ratio1 = rand(1,30);
 		$ratio2 = rand(1,30);
 		$ratio3 = rand(1,35);
-		$w = $event->getPlayer()->getLevel()->getFolderName();
-		$world = $this->getServer()->getLevelByName($w);
-		$x = $event->getBlock()->getX();
-		$y = $event->getBlock()->getY();
-		$z = $event->getBlock()->getZ();
+		$worldname = $block->getWorld()->getDisplayName();
+    $world = $this->getServer()->getWorldManager()->getWorldByName($worldname);
+		$x = $block->getPosition()->getX();
+		$y = $block->getPosition()->getY();
+		$z = $block->getPosition()->getZ();
 		switch ($ratio1) {
 			case 1:
 				$world->dropItem(new Vector3($x,$y,$z), Item::get(266));
@@ -146,14 +147,15 @@ class Main extends PluginBase implements Listener
 	public function ratioPlayer($event)
 	{
 		$player = $event->getPlayer();
+		$block = $event->getBlock();
 		$ratio1 = rand(1,90);
 		$ratio2 = rand(1,90);
 		$ratio3 = rand(1,90);
-		$w = $event->getPlayer()->getLevel()->getFolderName();
-		$world = $this->getServer()->getLevelByName($w);
-		$x = $event->getBlock()->getX();
-		$y = $event->getBlock()->getY();
-		$z = $event->getBlock()->getZ();
+		$worldname = $block->getWorld()->getDisplayName();
+    $world = $this->getServer()->getWorldManager()->getWorldByName($worldname);
+		$x = $block->getPosition()->getX();
+		$y = $block->getPosition()->getY();
+		$z = $block->getPosition()->getZ();
 		switch ($ratio1) {
 			case 1:
 				$world->dropItem(new Vector3($x,$y,$z), Item::get(265));

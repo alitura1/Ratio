@@ -4,4 +4,4 @@ language: "en_EN"
 
 # Default Sound "simple"
 # Sounds: colourful, congratulations, ghostly, mysterious, simple
-sound: "simple"
+sound: "congratulations"
