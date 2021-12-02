@@ -106,7 +106,7 @@ class Main extends PluginBase implements Listener
 		$ratio2 = rand(1,30);
 		$ratio3 = rand(1,35);
 		$worldname = $event->getPlayer()->getWorld()->getFolderName();
-		$world = $this->getWorldManager()->getWorldByName($worldname)->loadWorld();
+		$world = $this->getServer()->getWorldManager()->getWorldByName($worldname)->loadWorld();
 		$x = $block->getPosition()->getX();
 		$y = $block->getPosition()->getY();
 		$z = $block->getPosition()->getZ();
