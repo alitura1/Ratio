@@ -73,17 +73,13 @@ class Main extends PluginBase implements Listener
 	public function blockBreak(BlockBreakEvent $event)
 	{
 		$player = $event->getPlayer();
-		$name = $player->getName();
-		$world = $player->getWorld()->getFolderName();
-		if ($world = $name) {
-			if ($event->getBlock()->getId() == 4) {
+	        if ($event->getBlock()->getId() == 4) {
 				if ($player->hasPermission("ratio.vip")) {
 					$this->ratioVip($event);
 				} else {
 					$this->ratioPlayer($event);
 				}
 			}
-		}
 	}
 
 	public function playMusic(Player $player)
@@ -105,14 +101,16 @@ class Main extends PluginBase implements Listener
 		$ratio1 = rand(1,30);
 		$ratio2 = rand(1,30);
 		$ratio3 = rand(1,35);
-		$worldname = $event->getPlayer()->getWorld()->getFolderName();
-		$world = $this->getWorldManager()->getWorldByName($worldname)->loadWorld();
+		$world = $event->getPlayer()->getWorld();
 		$x = $block->getPosition()->getX();
 		$y = $block->getPosition()->getY();
 		$z = $block->getPosition()->getZ();
+                $drops = $event->getDrops();
+                $drops[] = $item;
+                /** @var Item $item */
+                $event->setDrops($drops);
 		switch ($ratio1) {
 			case 1:
-				$world->dropItem(new Vector3($x,$y,$z), Item::get(266));
 				$this->playMusic($player);
 				$player->sendMessage(LanguageManager::translateMessage($player, "vip-message"));
 			break;
@@ -150,10 +148,13 @@ class Main extends PluginBase implements Listener
 		$ratio2 = rand(1,90);
 		$ratio3 = rand(1,90);
 		$worldname = $event->getPlayer()->getWorld()->getFolderName();
-		$world = $this->getWorldManager()->getWorldByName($worldname)->loadWorld();
+		$world = $this->getServer()->getWorldManager()->getWorldByName($worldname);
 		$x = $block->getPosition()->getX();
 		$y = $block->getPosition()->getY();
 		$z = $block->getPosition()->getZ();
+                $drops = $event->getDrops();
+                $drops[] = $item;
+                $event->setDrops($drops);
 		switch ($ratio1) {
 			case 1:
 				$world->dropItem(new Vector3($x,$y,$z), Item::get(265));
