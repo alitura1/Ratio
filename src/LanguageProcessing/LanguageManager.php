@@ -3,7 +3,7 @@
 namespace xAliTura01\Ratio\LanguageProcessing;
 
 use Exception;
-use pocketmine\Player;
+use pocketmine\player\Player;
 use xAliTura01\Ratio\Main;
 use pocketmine\command\CommandSender;
 

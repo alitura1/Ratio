@@ -1,8 +1,9 @@
 name: Ratio
 main: xAliTura01\Ratio\Main
-api: 3.20.0
+src-namespace-prefix: xAliTura01\Ratio
+api: 4.0.0
 author: xAliTura01
-version: 0.3
+version: 0.4
 
 permissions:
   ratio.vip:

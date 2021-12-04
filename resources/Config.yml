@@ -2,6 +2,6 @@
 # Languages: en_EN, tr_TR, vi_VN, az_AZ, ru_RU
 language: "en_EN"
 
-# Default Sound "simple"
+# Default Sound "mysterious"
 # Sounds: colourful, congratulations, ghostly, mysterious, simple
-sound: "simple"
+sound: "mysterious"
