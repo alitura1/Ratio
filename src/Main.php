@@ -3,13 +3,11 @@
 namespace xAliTura01\Ratio;
 
 use ReflectionClass;
-use pocketmine\item\Item;
-use pocketmine\item\ItemIds;
 use pocketmine\math\Vector3;
 use pocketmine\player\Player;
 use pocketmine\event\Listener;
-use pocketmine\item\ItemFactory;
 use __64FF00\PureChat\PurePerms;
+use pocketmine\item\VanillaItems;
 use pocketmine\plugin\PluginBase;
 use pocketmine\event\block\BlockBreakEvent;
 use pocketmine\resourcepacks\ZippedResourcePack;
@@ -57,24 +55,17 @@ class Main extends PluginBase implements Listener {
 
 	public function blockBreak(BlockBreakEvent $event) {
 		$player = $event->getPlayer();
-		$ratidoPlayer1 = rand(1,90);
-		$ratidoPlayer2 = rand(1,90);
-		$ratidoPlayer3 = rand(1,90);
-		$ratioVip1 = rand(1,30);
+		$ratidoPlayer1 = rand(1,95);
+		$ratidoPlayer2 = rand(1,75);
+		$ratidoPlayer3 = rand(1,60);
+		$ratioVip1 = rand(1,20);
 		$ratioVip2 = rand(1,30);
-		$ratioVip3 = rand(1,35);
+		$ratioVip3 = rand(1,40);
 		if ($event->getBlock()->getId() == 4) {
 			switch ($ratidoPlayer1) {
 				case 1:
 					$itemSpawn = $event->getDrops();
-					$itemSpawn[] = ItemFactory::getInstance()->get(265, 0, 1);
-					$event->setDrops($itemSpawn);
-					$this->playMusic($player);
-					$player->sendMessage(LanguageManager::translateMessage($player, "player-message"));
-					break;
-				case 2:
-					$itemSpawn = $event->getDrops();
-					$itemSpawn[] = ItemFactory::getInstance()->get(264, 0, 1);
+					$itemSpawn[] = VanillaItems::DIAMOND()->setCount(1);
 					$event->setDrops($itemSpawn);
 					$this->playMusic($player);
 					$player->sendMessage(LanguageManager::translateMessage($player, "player-message"));
@@ -83,14 +74,14 @@ class Main extends PluginBase implements Listener {
 			switch ($ratidoPlayer2) {
 				case 1:
 					$itemSpawn = $event->getDrops();
-					$itemSpawn[] = ItemFactory::getInstance()->get(265, 0, 1);
+					$itemSpawn[] = VanillaItems::IRON_INGOT()->setCount(1);
 					$event->setDrops($itemSpawn);
 					$this->playMusic($player);
 					$player->sendMessage(LanguageManager::translateMessage($player, "player-message"));
 					break;
 				case 2:
 					$itemSpawn = $event->getDrops();
-					$itemSpawn[] = ItemFactory::getInstance()->get(266, 0, 1);
+					$itemSpawn[] = VanillaItems::GOLD_INGOT()->setCount(1);
 					$event->setDrops($itemSpawn);
 					$this->playMusic($player);
 					$player->sendMessage(LanguageManager::translateMessage($player, "player-message"));
@@ -99,7 +90,14 @@ class Main extends PluginBase implements Listener {
 			switch ($ratidoPlayer3) {
 				case 1:
 					$itemSpawn = $event->getDrops();
-					$itemSpawn[] = ItemFactory::getInstance()->get(1, 0, 1);
+					$itemSpawn[] = VanillaItems::GHAST_TEAR()->setCount(1);
+					$event->setDrops($itemSpawn);
+					$this->playMusic($player);
+					$player->sendMessage(LanguageManager::translateMessage($player, "player-message"));
+					break;
+                                case 2:
+                                        $itemSpawn = $event->getDrops();
+					$itemSpawn[] = VanillaItems::IRON_INGOT()->setCount(1);
 					$event->setDrops($itemSpawn);
 					$this->playMusic($player);
 					$player->sendMessage(LanguageManager::translateMessage($player, "player-message"));
@@ -109,14 +107,14 @@ class Main extends PluginBase implements Listener {
 				switch ($ratioVip1) {
 					case 1:
 						$itemSpawn = $event->getDrops();
-						$itemSpawn[] = ItemFactory::getInstance()->get(264, 0, 1);
+						$itemSpawn[] = VanillaItems::DIAMOND()->setCount(1);
 						$event->setDrops($itemSpawn);
 						$this->playMusic($player);
 						$player->sendMessage(LanguageManager::translateMessage($player, "vip-message"));
 						break;
 					case 2:
 						$itemSpawn = $event->getDrops();
-						$itemSpawn[] = ItemFactory::getInstance()->get(370, 0, 1);
+						$itemSpawn[] = VanillaItems::GHAST_TEAR()->setCount(1);
 						$event->setDrops($itemSpawn);
 						$this->playMusic($player);
 						$player->sendMessage(LanguageManager::translateMessage($player, "vip-message"));
@@ -125,14 +123,14 @@ class Main extends PluginBase implements Listener {
 				switch ($ratioVip2) {
 					case 1:
 						$itemSpawn = $event->getDrops();
-						$itemSpawn[] = ItemFactory::getInstance()->get(266, 0, 1);
+						$itemSpawn[] = VanillaItems::GOLD_INGOT()->setCount(1);
 						$event->setDrops($itemSpawn);
 						$this->playMusic($player);
 						$player->sendMessage(LanguageManager::translateMessage($player, "vip-message"));
 						break;
 					case 2:
 						$itemSpawn = $event->getDrops();
-						$itemSpawn[] = ItemFactory::getInstance()->get(265, 0, 1);
+						$itemSpawn[] = VanillaItems::IRON_INGOT()->setCount(1);
 						$event->setDrops($itemSpawn);
 						$this->playMusic($player);
 						$player->sendMessage(LanguageManager::translateMessage($player, "vip-message"));
@@ -141,7 +139,7 @@ class Main extends PluginBase implements Listener {
 				switch($ratioVip3) {
 					case 1:
 						$itemSpawn = $event->getDrops();
-						$itemSpawn[] = ItemFactory::getInstance()->get(264, 0, 1);
+						$itemSpawn[] = VanillaItems::DIAMOND()->setCount(1);
 						$event->setDrops($itemSpawn);
 						$this->playMusic($player);
 						$player->sendMessage(LanguageManager::translateMessage($player, "vip-message"));
